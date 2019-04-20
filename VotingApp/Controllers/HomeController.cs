@@ -62,7 +62,7 @@ namespace VotingApp.Controllers
                     {
                         100,
                         new List<ElectionCandidate>(new[] {
-                            new ElectionCandidate { Id = 0, Name = "<Choose a candidate>" },
+                            //new ElectionCandidate { Id = 0, Name = "<Choose a candidate>" },
                             new ElectionCandidate { Id = 10, Name = "John" },
                             new ElectionCandidate { Id = 11, Name = "Jack" },
                             new ElectionCandidate { Id = 12, Name = "JK" },
@@ -71,7 +71,7 @@ namespace VotingApp.Controllers
                     {
                         101,
                         new List<ElectionCandidate>(new[] {
-                            new ElectionCandidate { Id = 0, Name = "<Choose a candidate>" },
+                            //new ElectionCandidate { Id = 0, Name = "<Choose a candidate>" },
                             new ElectionCandidate { Id = 13, Name = "Amar" },
                             new ElectionCandidate { Id = 14, Name = "Akbar" },
                             new ElectionCandidate { Id = 15, Name = "Antony" },

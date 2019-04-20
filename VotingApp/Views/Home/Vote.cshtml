@@ -17,11 +17,16 @@
         List<ElectionCandidate> candidates = ((Dictionary<int, List<ElectionCandidate>>)ViewBag.CandidateList)[Model.Posts[i].Id];
         List<SelectListItem> dropdownItems = candidates.Select(_ => new SelectListItem { Text = _.Name, Value = _.Id.ToString() }).ToList();
 
-        <div>
-            @Html.DropDownListFor(m => m.Posts[i].Candidate, dropdownItems)
 
-        </div>
+        @*@Html.DropDownListFor(m => m.Posts[i].Candidate, dropdownItems)*@
+        foreach (ElectionCandidate c in candidates)
+        {
+            <div>
+                @Html.RadioButtonFor(m => m.Posts[i].Candidate, c.Id.ToString()) @c.Name 
+            </div>
+        }
+
+        }
+        <br />
+        <input type="submit" />
     }
-    <br/>
-    <input type="submit" />
-}
