@@ -1,0 +1,27 @@
+﻿@using VotingApp.Models
+@model VotingForm
+@{
+    ViewBag.Title = "The Booth";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+<p>Use this area to provide additional information.</p>
+
+@using (Html.BeginForm("Vote", "Home", FormMethod.Post))
+{
+    for (int i = 0; i < Model.Posts.Count; i++)
+    {
+        <h1>@Model.Posts[i].Name</h1>
+        @Html.HiddenFor(m => m.Posts[i].Id)
+
+        List<ElectionCandidate> candidates = ((Dictionary<int, List<ElectionCandidate>>)ViewBag.CandidateList)[Model.Posts[i].Id];
+        List<SelectListItem> dropdownItems = candidates.Select(_ => new SelectListItem { Text = _.Name, Value = _.Id.ToString() }).ToList();
+
+        <div>
+            @Html.DropDownListFor(m => m.Posts[i].Candidate, dropdownItems)
+
+        </div>
+    }
+    <br/>
+    <input type="submit" />
+}
